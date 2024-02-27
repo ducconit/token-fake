@@ -1,0 +1,6 @@
+.env
+.env.*
+!.env.example
+src/yarn-error.log
+src/node_modules
+src/build

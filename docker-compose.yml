@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  truffle:
+    build:
+      context: .
+      dockerfile: Dockerfile.truffle
+    volumes:
+      - ./src:/app
+      - .env:/app/.env
+    networks:
+      - token_fake
+    command: bash -c "cd contracts && npm install"
+  ganache:
+    build:
+      context: .
+      dockerfile: Dockerfile.ganache
+    environment:
+      MNEMONIC: ${SAMPLE_MNEMONIC}
+      AMOUNT_ADDRESS: ${AMOUNT_ADDRESS}
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./src:/app
+      - .env:/app/.env
+    networks:
+      - token_fake
+networks:
+  token_fake:
+    name: token_fake
