@@ -372,7 +372,7 @@ contract Ownable is Context {
     }
 }
 
-contract BusdMock is Context, IBEP20, Ownable {
+contract BUSD is Context, IBEP20, Ownable {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
