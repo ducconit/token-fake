@@ -1,8 +1,8 @@
 FROM node:latest
 
-WORKDIR /orbit
-RUN npm install -g truffle
-RUN npm install -g ganache-cli
+WORKDIR /app/src
+RUN yarn global add truffle
+RUN yarn global add ganache-cli
 
 # Listening on port 8545, which is the default port of ganache
 EXPOSE 8545

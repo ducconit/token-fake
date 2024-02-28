@@ -1,10 +1,11 @@
 FROM node:latest
 
-WORKDIR /app
+WORKDIR /app/src
+
 ENV NODE_PATH /usr/local/lib/node_modules
-RUN npm install -g truffle
-RUN npm install -g solc@0.8.9
-RUN npm install -g chai
-RUN npm install -g truffle-assertions
-RUN npm install -g web3
-RUN npm install -g chai-bn
+RUN yarn global add truffle
+RUN yarn global add solc@0.8.9
+RUN yarn global add chai
+RUN yarn global add truffle-assertions
+RUN yarn global add web3
+RUN yarn global add chai-bn

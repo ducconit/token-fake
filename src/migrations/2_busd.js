@@ -1,9 +1,9 @@
-const Token = artifacts.require("Token");
+const Token = artifacts.require("BusdMock");
 
 module.exports = function (deployer, network, accounts) {
   deployer.then(async function () {
-    await deployer.deploy(Token, "USDT", "USDT");
+    await deployer.deploy(Token);
     const conToken = await Token.deployed();
-    console.log(("Token", conToken.address));
+    console.log(("BusdMock: ", conToken.address));
   });
 };

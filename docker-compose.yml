@@ -5,11 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile.truffle
     volumes:
-      - ./src:/app
-      - .env:/app/.env
+      - .:/app
     networks:
       - token_fake
-    command: bash -c "cd contracts && npm install"
+    command: bash -c "yarn install"
   ganache:
     build:
       context: .
@@ -20,8 +19,15 @@ services:
     ports:
       - "8545:8545"
     volumes:
-      - ./src:/app
-      - .env:/app/.env
+      - .:/app
+    networks:
+      - token_fake
+  geth:
+    build:
+      context: .
+      dockerfile: Dockerfile.geth
+    volumes:
+      - .:/app
     networks:
       - token_fake
 networks:
