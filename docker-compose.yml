@@ -8,6 +8,9 @@ services:
       - .:/app
     networks:
       - token_fake
+    environment:
+      TOKEN_NAME: ${TOKEN_NAME}
+      TOKEN_SYMBOL: ${TOKEN_SYMBOL}
     command: bash -c "yarn install"
   ganache:
     build:
